@@ -1,0 +1,36 @@
+<div class="ui container main">
+	<h1>Card Pick-a-matic</h1>
+	{{ name}}
+	<div class="ui segment">
+		<div class="ui grid">
+			<div class="two column row">
+				<div class="middle aligned column">
+					<button (click)="clicked()"
+							[innerHTML] = "cardCount + 'card left'"
+							[disabled]="cardCount === 0"
+							class="ui big fluid button">
+					</button>
+				</div>
+				<div class="one wide bottom aligned column">
+					<div class="life-bar"
+					     [ngClass] = "lifeBarHeight() < 18 ? 'sad' : ''"
+						 [ngStyle] = "{ height: lifeBarHeight() + 'px'}" ></div>
+				</div>
+				<div class="four wide middle aligned column">
+						You last drew: {{card.suit}}{{card.rank}}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div *ngFor = "let card of arrayCards" class="ui left floated compact center aligned segment card-in-hand">
+		<button  class="ui large button red-card">
+			<h2>{{card.suit}}</h2>
+			<h2>{{card.rank}}</h2>
+			<button (click)="returnBack(card)" class="return">
+				RETURN
+				<i class="reply icon"></i>
+			</button>
+		</button>
+	</div>
+</div>

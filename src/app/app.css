@@ -1,0 +1,14 @@
+.red-card{
+    color:red;
+}
+.life-bar.sad {
+    background-color: red;
+}
+.life-bar {
+    background-color: green;
+    width: 10px;
+    height: 46px;
+}
+.happy{
+    background-color: blue;
+}
